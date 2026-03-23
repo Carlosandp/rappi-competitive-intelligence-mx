@@ -1,0 +1,59 @@
+{
+  "chains": {
+    "mcdonalds": {
+      "display_names": ["McDonald's", "McDonalds", "Mc Donald's", "Mc Donalds", "McDo"],
+      "products": {
+        "big_mac": {
+          "canonical_name": "Big Mac",
+          "search_terms": ["Big Mac", "BigMac"],
+          "category": "burger",
+          "unit": "unidad"
+        },
+        "combo_big_mac": {
+          "canonical_name": "McTrio Big Mac Mediano",
+          "search_terms": ["McTrio Big Mac", "Combo Big Mac", "Big Mac Combo", "Trio Big Mac", "McCombo Big Mac"],
+          "category": "combo",
+          "unit": "combo"
+        },
+        "mcnuggets_10": {
+          "canonical_name": "McNuggets 10 piezas",
+          "search_terms": ["McNuggets 10", "Nuggets 10", "10 McNuggets", "10 Nuggets", "Nuggets x10"],
+          "category": "chicken",
+          "unit": "porciones"
+        },
+        "papas_medianas": {
+          "canonical_name": "Papas a la Francesa Medianas",
+          "search_terms": ["Papas Medianas", "French Fries Medium", "Papas a la Francesa Medianas", "Papas M"],
+          "category": "side",
+          "unit": "porción"
+        }
+      }
+    },
+    "burger_king": {
+      "display_names": ["Burger King", "BK", "Burgerking"],
+      "products": {
+        "whopper": {
+          "canonical_name": "Whopper",
+          "search_terms": ["Whopper"],
+          "category": "burger",
+          "unit": "unidad"
+        },
+        "combo_whopper": {
+          "canonical_name": "Combo Whopper Mediano",
+          "search_terms": ["Combo Whopper", "Whopper Combo", "Whopper Meal", "Whopper Jr Combo"],
+          "category": "combo",
+          "unit": "combo"
+        },
+        "nuggets_8": {
+          "canonical_name": "Nuggets 8 piezas",
+          "search_terms": ["Chicken Nuggets 8", "Nuggets 8 pcs", "Nuggets 8 piezas", "8 Nuggets"],
+          "category": "chicken",
+          "unit": "porciones"
+        }
+      }
+    }
+  },
+  "anchor_chain": "mcdonalds",
+  "priority_products": ["big_mac", "combo_big_mac", "mcnuggets_10"],
+  "currency": "MXN"
+}

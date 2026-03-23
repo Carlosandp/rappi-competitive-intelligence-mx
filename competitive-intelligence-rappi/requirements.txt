@@ -1,0 +1,30 @@
+# ============================================================
+# Requirements — Python 3.12 compatible
+# Tested with Python 3.12.x on Windows 10/11, macOS, Linux
+# ============================================================
+
+# Core scraping
+playwright>=1.40.0,<2.0.0
+
+# greenlet — 3.12 wheel available from 3.0.0+
+greenlet>=3.0.0,<4.0.0
+
+# Data processing
+numpy>=1.26.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+
+# Visualization & dashboard
+plotly>=5.18.0,<6.0.0
+
+# Streamlit 1.32+ supports Python 3.12 natively + altair 5
+streamlit>=1.32.0,<2.0.0
+
+# altair 5 required for streamlit >= 1.32
+altair>=5.0.0,<6.0.0
+
+# Utilities
+python-dotenv>=1.0.0,<2.0.0
+requests>=2.31.0,<3.0.0
+
+# Testing
+pytest>=8.0.0,<9.0.0

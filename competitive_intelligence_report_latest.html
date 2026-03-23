@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Report -- Competitive Intelligence Rappi</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',-apple-system,sans-serif;background:#0F172A;color:#F8FAFC;line-height:1.6;}
+  .container{max-width:1100px;margin:0 auto;padding:40px 24px;}
+  .header{background:linear-gradient(135deg,#FF441F 0%,#FF6B4A 100%);border-radius:16px;padding:40px;margin-bottom:40px;}
+  .header h1{font-size:2rem;font-weight:800;color:white;margin-bottom:8px;}
+  .header p{color:rgba(255,255,255,0.85);font-size:1rem;}
+  .meta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .meta span{background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:20px;font-size:0.82rem;color:white;}
+  h2{font-size:1.4rem;font-weight:700;margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid #FF441F;}
+  .sub{font-size:1rem;font-weight:600;color:#94A3B8;margin:24px 0 12px;}
+  .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+  .kpi-card{background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;text-align:center;}
+  .kpi-plat{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+  .kpi-val{font-size:2.2rem;font-weight:800;margin-bottom:4px;}
+  .kpi-lbl{font-size:0.75rem;color:#94A3B8;margin-bottom:12px;}
+  .kpi-det{font-size:0.8rem;color:#94A3B8;line-height:1.9;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;background:#1E293B;border-radius:10px;overflow:hidden;}
+  th{background:#0F172A;padding:10px 14px;font-size:0.78rem;text-align:left;color:#94A3B8;text-transform:uppercase;letter-spacing:0.5px;}
+  td{padding:10px 14px;font-size:0.88rem;border-bottom:1px solid #334155;}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:#334155;}
+  .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .insight-card{background:#1E293B;border-left:4px solid;border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:24px;}
+  .insight-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .insight-num{font-size:1.5rem;font-weight:800;color:#FF441F;}
+  .insight-cat{font-size:0.78rem;font-weight:700;background:#334155;padding:3px 10px;border-radius:20px;color:#CBD5E1;}
+  .insight-sev{font-size:0.78rem;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .insight-card h3{font-size:1.05rem;font-weight:700;margin-bottom:14px;}
+  .insight-section{margin-bottom:12px;}
+  .insight-label{font-size:0.72rem;font-weight:700;letter-spacing:1px;color:#94A3B8;margin-bottom:4px;}
+  .insight-section p{font-size:0.88rem;color:#CBD5E1;}
+  .recommendation{color:#F8FAFC!important;font-weight:500;}
+  details{margin-top:12px;} summary{cursor:pointer;font-size:0.82rem;color:#94A3B8;}
+  .badge-row{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+  .badge{background:#1E293B;border:1px solid #334155;border-radius:8px;padding:8px 14px;font-size:0.82rem;color:#CBD5E1;}
+  .badge strong{color:#F8FAFC;}
+  .footer{text-align:center;font-size:0.75rem;color:#475569;margin-top:60px;padding-top:24px;border-top:1px solid #334155;}
+  @media(max-width:700px){.kpi-grid,.chart-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Competitive Intelligence Report</h1>
+    <p>Rappi vs Uber Eats vs DiDi Food &mdash; McDonald's Mexico</p>
+    <div class="meta">
+      <span>Generated: 23 Mar 2026, 22:36</span>
+      <span>24 delivery addresses</span>
+      <span>3 cities</span>
+      <span>288 observations</span>
+      <span>100% success rate</span>
+    </div>
+  </div>
+
+  <h2>Executive Summary</h2>
+  <div class="badge-row">
+    <div class="badge">Coverage: <strong>CDMX, Guadalajara, Monterrey</strong></div>
+    <div class="badge">Platforms: <strong>Rappi · Uber Eats · DiDi Food</strong></div>
+    <div class="badge">Products: <strong>4 McDonald's items</strong></div>
+    <div class="badge">Insights: <strong>5 actionable findings</strong></div>
+  </div>
+  <p style="color:#CBD5E1;margin-bottom:24px;">
+    Analysis covers <strong>24 delivery addresses</strong> across CDMX, Guadalajara and Monterrey,
+    comparing <strong>3 platforms</strong> on 4 key products. Five strategic insights
+    were generated for Pricing and Strategy teams.
+  </p>
+
+  <h2>Platform Snapshot</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-plat" style="color:#FF441F;">Rappi</div>
+      <div class="kpi-val" style="color:#FF441F;">$124</div>
+      <div class="kpi-lbl">Avg product price (MXN)</div>
+      <hr style="border-color:#334155;margin:10px 0;">
+      <div class="kpi-det">Delivery fee: <strong>$31</strong><br>Avg ETA: <strong>33 min</strong><br>Promo rate: <strong>25%</strong></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-plat" style="color:#06C167;">Uber Eats</div>
+      <div class="kpi-val" style="color:#06C167;">$119</div>
+      <div class="kpi-lbl">Avg product price (MXN)</div>
+      <hr style="border-color:#334155;margin:10px 0;">
+      <div class="kpi-det">Delivery fee: <strong>$23</strong><br>Avg ETA: <strong>35 min</strong><br>Promo rate: <strong>38%</strong></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-plat" style="color:#FF6B00;">DiDi Food</div>
+      <div class="kpi-val" style="color:#FF6B00;">$121</div>
+      <div class="kpi-lbl">Avg product price (MXN)</div>
+      <hr style="border-color:#334155;margin:10px 0;">
+      <div class="kpi-det">Delivery fee: <strong>$15</strong><br>Avg ETA: <strong>38 min</strong><br>Promo rate: <strong>50%</strong></div>
+    </div>
+  </div>
+
+  <h2>Pricing Analysis</h2>
+  
+<div style="background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;margin:16px 0;">
+  <canvas id="chart_price" height="280"></canvas>
+</div>
+<script>
+(function(){
+  var ctx=document.getElementById('chart_price').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:["Big Mac", "McNuggets 10 piezas", "McTrio Big Mac Mediano", "Papas a la Francesa Medianas"],datasets:[{"label": "Rappi", "data": [106.0, 148.48, 183.6, 59.66], "backgroundColor": "#FF441F"}, {"label": "Uber Eats", "data": [99.36, 140.95, 179.51, 55.36], "backgroundColor": "#06C167"}, {"label": "DiDi Food", "data": [103.34, 142.64, 179.18, 57.51], "backgroundColor": "#FF6B00"}]},
+    options:{
+      responsive:true,
+      plugins:{
+        title:{display:true,text:'Avg Product Price by Platform (MXN)',color:'#F8FAFC',font:{size:15,weight:'bold'}},
+        legend:{labels:{color:'#F8FAFC',font:{size:12}}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+'$' + c.parsed.y.toFixed(0);}}}
+      },
+      scales:{
+        x:{ticks:{color:'#CBD5E1'},grid:{color:'rgba(148,163,184,0.15)'}},
+        y:{ticks:{color:'#CBD5E1',callback:function(v){return '$' + v.toFixed(0);}},
+           grid:{color:'rgba(148,163,184,0.15)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+  <p class="sub">Price breakdown by product</p>
+  <table><thead><tr><th>Platform</th><th>Product</th><th>Avg Price (MXN)</th></tr></thead><tbody><tr><td>DiDi Food</td><td>Big Mac</td><td>103.34</td></tr><tr><td>DiDi Food</td><td>McNuggets 10 piezas</td><td>142.64</td></tr><tr><td>DiDi Food</td><td>McTrio Big Mac Mediano</td><td>179.18</td></tr><tr><td>DiDi Food</td><td>Papas a la Francesa Medianas</td><td>57.51</td></tr><tr><td>Rappi</td><td>Big Mac</td><td>106.0</td></tr><tr><td>Rappi</td><td>McNuggets 10 piezas</td><td>148.48</td></tr><tr><td>Rappi</td><td>McTrio Big Mac Mediano</td><td>183.6</td></tr><tr><td>Rappi</td><td>Papas a la Francesa Medianas</td><td>59.66</td></tr><tr><td>Uber Eats</td><td>Big Mac</td><td>99.36</td></tr><tr><td>Uber Eats</td><td>McNuggets 10 piezas</td><td>140.95</td></tr><tr><td>Uber Eats</td><td>McTrio Big Mac Mediano</td><td>179.51</td></tr><tr><td>Uber Eats</td><td>Papas a la Francesa Medianas</td><td>55.36</td></tr></tbody></table>
+
+  <h2>Total Cost to User</h2>
+  
+<div style="background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;margin:16px 0;">
+  <canvas id="chart_total" height="280"></canvas>
+</div>
+<script>
+(function(){
+  var ctx=document.getElementById('chart_total').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:["Big Mac", "McNuggets 10 piezas", "McTrio Big Mac Mediano", "Papas a la Francesa Medianas"],datasets:[{"label": "Rappi", "data": [145.18, 191.2, 229.42, 94.76], "backgroundColor": "#FF441F"}, {"label": "Uber Eats", "data": [133.67, 180.71, 226.4, 83.08], "backgroundColor": "#06C167"}, {"label": "DiDi Food", "data": [127.62, 171.35, 210.66, 76.62], "backgroundColor": "#FF6B00"}]},
+    options:{
+      responsive:true,
+      plugins:{
+        title:{display:true,text:'Estimated Total Cost — Product + Fees (MXN)',color:'#F8FAFC',font:{size:15,weight:'bold'}},
+        legend:{labels:{color:'#F8FAFC',font:{size:12}}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+'$' + c.parsed.y.toFixed(0);}}}
+      },
+      scales:{
+        x:{ticks:{color:'#CBD5E1'},grid:{color:'rgba(148,163,184,0.15)'}},
+        y:{ticks:{color:'#CBD5E1',callback:function(v){return '$' + v.toFixed(0);}},
+           grid:{color:'rgba(148,163,184,0.15)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+  <p style="font-size:0.82rem;color:#94A3B8;margin-top:8px;">Total = product price + delivery fee + service fee &minus; discounts</p>
+
+  <h2>Fee Analysis</h2>
+  <div class="chart-row">
+    
+<div style="background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;margin:16px 0;">
+  <canvas id="chart_fee" height="220"></canvas>
+</div>
+<script>
+(function(){
+  var ctx=document.getElementById('chart_fee').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:["Rappi", "Uber Eats", "DiDi Food"],datasets:[{"label": "Avg Delivery Fee (MXN)", "data": [30.67, 22.59, 15.16], "backgroundColor": ["#FF441F", "#06C167", "#FF6B00"]}]},
+    options:{
+      responsive:true,
+      plugins:{
+        title:{display:true,text:'Avg Delivery Fee (MXN)',color:'#F8FAFC',font:{size:15,weight:'bold'}},
+        legend:{labels:{color:'#F8FAFC',font:{size:12}}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+'$' + c.parsed.y.toFixed(0);}}}
+      },
+      scales:{
+        x:{ticks:{color:'#CBD5E1'},grid:{color:'rgba(148,163,184,0.15)'}},
+        y:{ticks:{color:'#CBD5E1',callback:function(v){return '$' + v.toFixed(0);}},
+           grid:{color:'rgba(148,163,184,0.15)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+    
+<div style="background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;margin:16px 0;">
+  <canvas id="chart_promo" height="220"></canvas>
+</div>
+<script>
+(function(){
+  var ctx=document.getElementById('chart_promo').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:["Rappi", "Uber Eats", "DiDi Food"],datasets:[{"label": "Promo Visibility (%)", "data": [25.0, 37.5, 50.0], "backgroundColor": ["#FF441F", "#06C167", "#FF6B00"]}]},
+    options:{
+      responsive:true,
+      plugins:{
+        title:{display:true,text:'Promo Visibility Rate (%)',color:'#F8FAFC',font:{size:15,weight:'bold'}},
+        legend:{labels:{color:'#F8FAFC',font:{size:12}}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.y.toFixed(0) + '%';}}}
+      },
+      scales:{
+        x:{ticks:{color:'#CBD5E1'},grid:{color:'rgba(148,163,184,0.15)'}},
+        y:{ticks:{color:'#CBD5E1',callback:function(v){return v.toFixed(0) + '%';}},
+           grid:{color:'rgba(148,163,184,0.15)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+  </div>
+  <p class="sub">Delivery fee by zone type</p>
+  <table><thead><tr><th>Platform</th><th>Zone Type</th><th>Avg Delivery Fee (MXN)</th></tr></thead><tbody><tr><td>DiDi Food</td><td>commercial</td><td>14.5</td></tr><tr><td>DiDi Food</td><td>peripheral</td><td>24.12</td></tr><tr><td>DiDi Food</td><td>premium</td><td>9.04</td></tr><tr><td>DiDi Food</td><td>residential_medium</td><td>15.3</td></tr><tr><td>DiDi Food</td><td>residential_premium</td><td>13.35</td></tr><tr><td>Rappi</td><td>commercial</td><td>27.23</td></tr><tr><td>Rappi</td><td>peripheral</td><td>42.43</td></tr><tr><td>Rappi</td><td>premium</td><td>29.53</td></tr><tr><td>Rappi</td><td>residential_medium</td><td>27.66</td></tr><tr><td>Rappi</td><td>residential_premium</td><td>24.06</td></tr><tr><td>Uber Eats</td><td>commercial</td><td>14.04</td></tr><tr><td>Uber Eats</td><td>peripheral</td><td>29.32</td></tr><tr><td>Uber Eats</td><td>premium</td><td>20.33</td></tr><tr><td>Uber Eats</td><td>residential_medium</td><td>30.13</td></tr><tr><td>Uber Eats</td><td>residential_premium</td><td>17.58</td></tr></tbody></table>
+
+  <h2>Delivery Time (ETA)</h2>
+  
+<div style="background:#1E293B;border:1px solid #334155;border-radius:12px;padding:20px;margin:16px 0;">
+  <canvas id="chart_eta" height="220"></canvas>
+</div>
+<script>
+(function(){
+  var ctx=document.getElementById('chart_eta').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:["Rappi", "Uber Eats", "DiDi Food"],datasets:[{"label": "Avg ETA (min)", "data": [32.9, 34.9, 38.1], "backgroundColor": ["#FF441F", "#06C167", "#FF6B00"]}]},
+    options:{
+      responsive:true,
+      plugins:{
+        title:{display:true,text:'Avg ETA by Platform (minutes)',color:'#F8FAFC',font:{size:15,weight:'bold'}},
+        legend:{labels:{color:'#F8FAFC',font:{size:12}}},
+        tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.y.toFixed(0) + ' min';}}}
+      },
+      scales:{
+        x:{ticks:{color:'#CBD5E1'},grid:{color:'rgba(148,163,184,0.15)'}},
+        y:{ticks:{color:'#CBD5E1',callback:function(v){return v.toFixed(0) + ' min';}},
+           grid:{color:'rgba(148,163,184,0.15)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+  <table><thead><tr><th>Platform</th><th>Avg ETA (min)</th><th>Min ETA</th><th>Max ETA</th></tr></thead><tbody><tr><td>DiDi Food</td><td>38.1</td><td>25.5</td><td>59.0</td></tr><tr><td>Rappi</td><td>32.9</td><td>21.0</td><td>50.0</td></tr><tr><td>Uber Eats</td><td>34.9</td><td>24.5</td><td>53.5</td></tr></tbody></table>
+
+  <h2>Top 5 Competitive Insights</h2>
+  <p style="color:#CBD5E1;margin-bottom:24px;">
+    Actionable findings for <strong>Strategy</strong>, <strong>Pricing</strong> and <strong>Operations</strong> teams.
+  </p>
+  
+        <div class="insight-card" style="border-left-color:#F59E0B;">
+          <div class="insight-header">
+            <span class="insight-num">#1</span>
+            <span class="insight-cat">Pricing</span>
+            <span class="insight-sev" style="background:#F59E0B20;color:#F59E0B;">Medium Priority</span>
+          </div>
+          <h3>Posicionamiento de Precios vs Competencia</h3>
+          <div class="insight-section">
+            <div class="insight-label">FINDING</div>
+            <p>Rappi tiene precios de producto en promedio 4.3% más altos que la competencia en McDonald's México. Vs Uber Eats: +5.5%.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">IMPACT</div>
+            <p>El precio de producto es el factor más visible para el usuario final. Un diferencial de 4.3% puede impactar significativamente la elección de plataforma en un mercado donde el usuario compara activamente.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">RECOMMENDATION</div>
+            <p class="recommendation">Revisar política de precios en McDonald's para productos ancla (Big Mac, combos). Si Rappi está por encima, evaluar: ¿es el precio del restaurante o hay markup adicional? Considerar negociación de precios exclusivos con la cadena o subsidio puntual.</p>
+          </div>
+          <details><summary>View supporting data</summary><table><thead><tr><th>Plataforma</th><th>Producto</th><th>Precio Promedio</th><th>Desv. Estándar</th><th>N Observaciones</th></tr></thead><tbody><tr><td>DiDi Food</td><td>Big Mac</td><td>103.34</td><td>10.232582621286246</td><td>24</td></tr><tr><td>DiDi Food</td><td>McNuggets 10 piezas</td><td>142.64</td><td>8.795848071510866</td><td>24</td></tr><tr><td>DiDi Food</td><td>McTrio Big Mac Mediano</td><td>179.18</td><td>17.037280089918074</td><td>24</td></tr><tr><td>DiDi Food</td><td>Papas a la Francesa Medianas</td><td>57.51</td><td>6.451644661679665</td><td>24</td></tr><tr><td>Rappi</td><td>Big Mac</td><td>106.0</td><td>9.206539254042848</td><td>24</td></tr><tr><td>Rappi</td><td>McNuggets 10 piezas</td><td>148.48</td><td>11.87951031050486</td><td>24</td></tr><tr><td>Rappi</td><td>McTrio Big Mac Mediano</td><td>183.6</td><td>14.92716519264143</td><td>24</td></tr><tr><td>Rappi</td><td>Papas a la Francesa Medianas</td><td>59.66</td><td>4.896808169984115</td><td>24</td></tr><tr><td>Uber Eats</td><td>Big Mac</td><td>99.36</td><td>7.780925662584539</td><td>24</td></tr><tr><td>Uber Eats</td><td>McNuggets 10 piezas</td><td>140.95</td><td>7.398472815385622</td><td>24</td></tr><tr><td>Uber Eats</td><td>McTrio Big Mac Mediano</td><td>179.51</td><td>10.31464407662893</td><td>24</td></tr><tr><td>Uber Eats</td><td>Papas a la Francesa Medianas</td><td>55.36</td><td>4.448661559830444</td><td>24</td></tr></tbody></table></details>
+        </div>
+        <div class="insight-card" style="border-left-color:#EF4444;">
+          <div class="insight-header">
+            <span class="insight-num">#2</span>
+            <span class="insight-cat">Fees</span>
+            <span class="insight-sev" style="background:#EF444420;color:#EF4444;">High Priority</span>
+          </div>
+          <h3>Fees de Entrega en Zonas Periféricas y Expansión</h3>
+          <div class="insight-section">
+            <div class="insight-label">FINDING</div>
+            <p>En zonas periféricas, DiDi Food cobra delivery fee de $24 MXN vs $42 MXN de Rappi — una diferencia de +76%. DiDi Food tiene los delivery fees más bajos en zonas de expansión.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">IMPACT</div>
+            <p>Las zonas periféricas representan el mayor potencial de crecimiento de usuarios. Un delivery fee más alto puede ser el factor decisivo para un usuario que recién considera usar delivery — primera impresión crítica para adquisición.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">RECOMMENDATION</div>
+            <p class="recommendation">Implementar delivery fee diferenciado por zona: subsidiar zonas periféricas prioritarias (ej. Iztapalapa, Tláhuac en CDMX; Tonalá en GDL; Santiago en MTY) para competir agresivamente con DiDi en zonas de expansión. Modelo: $0-15 MXN en periferia financiado por mejor comisión de restaurante.</p>
+          </div>
+          <details><summary>View supporting data</summary><table><thead><tr><th>Plataforma</th><th>Tipo de Zona</th><th>Delivery Fee Promedio (MXN)</th></tr></thead><tbody><tr><td>DiDi Food</td><td>commercial</td><td>14.5</td></tr><tr><td>DiDi Food</td><td>peripheral</td><td>24.12</td></tr><tr><td>DiDi Food</td><td>premium</td><td>9.04</td></tr><tr><td>DiDi Food</td><td>residential_medium</td><td>15.3</td></tr><tr><td>DiDi Food</td><td>residential_premium</td><td>13.35</td></tr><tr><td>Rappi</td><td>commercial</td><td>27.23</td></tr><tr><td>Rappi</td><td>peripheral</td><td>42.43</td></tr><tr><td>Rappi</td><td>premium</td><td>29.53</td></tr><tr><td>Rappi</td><td>residential_medium</td><td>27.66</td></tr><tr><td>Rappi</td><td>residential_premium</td><td>24.06</td></tr><tr><td>Uber Eats</td><td>commercial</td><td>14.04</td></tr><tr><td>Uber Eats</td><td>peripheral</td><td>29.32</td></tr><tr><td>Uber Eats</td><td>premium</td><td>20.33</td></tr><tr><td>Uber Eats</td><td>residential_medium</td><td>30.13</td></tr><tr><td>Uber Eats</td><td>residential_premium</td><td>17.58</td></tr></tbody></table></details>
+        </div>
+        <div class="insight-card" style="border-left-color:#EF4444;">
+          <div class="insight-header">
+            <span class="insight-num">#3</span>
+            <span class="insight-cat">Fees</span>
+            <span class="insight-sev" style="background:#EF444420;color:#EF4444;">High Priority</span>
+          </div>
+          <h3>Estructura de Service Fee por Plataforma</h3>
+          <div class="insight-section">
+            <div class="insight-label">FINDING</div>
+            <p>Uber Eats tiene el service fee más alto (14.9% del subtotal), mientras que Rappi es el más bajo (8.0%). La diferencia de 6.9 pp se traduce directamente en costo final para el usuario.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">IMPACT</div>
+            <p>El service fee es el costo menos visible pero más consistente. Un service fee alto puede hacer que Rappi pierda en precio total final aún cuando el producto y el delivery fee sean competitivos.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">RECOMMENDATION</div>
+            <p class="recommendation">Revisar la estructura de service fee especialmente en el segmento de usuarios frecuentes (>2 pedidos/semana). Considerar service fee diferenciado para usuarios Pro: 0% service fee como beneficio de membresía premium, compensado con mayor volumen de pedidos.</p>
+          </div>
+          <details><summary>View supporting data</summary><table><thead><tr><th>Plataforma</th><th>Service Fee % Promedio</th><th>Service Fee % Mediana</th></tr></thead><tbody><tr><td>DiDi Food</td><td>10.2</td><td>10.19</td></tr><tr><td>Rappi</td><td>7.97</td><td>8.01</td></tr><tr><td>Uber Eats</td><td>14.88</td><td>15.12</td></tr></tbody></table></details>
+        </div>
+        <div class="insight-card" style="border-left-color:#F59E0B;">
+          <div class="insight-header">
+            <span class="insight-num">#4</span>
+            <span class="insight-cat">Promotions</span>
+            <span class="insight-sev" style="background:#F59E0B20;color:#F59E0B;">Medium Priority</span>
+          </div>
+          <h3>Estrategia Promocional y Visibilidad de Descuentos</h3>
+          <div class="insight-section">
+            <div class="insight-label">FINDING</div>
+            <p>DiDi Food muestra promociones visibles en 50% de las observaciones, vs 25% de Rappi. DiDi Food lidera en frecuencia de descuentos visibles al usuario.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">IMPACT</div>
+            <p>Las promociones visibles generan un efecto de urgencia y value perception en el momento de decisión. Un usuario que ve '15% off' en Uber vs ninguna promo en Rappi probablemente elige Uber, aunque el precio final sea similar.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">RECOMMENDATION</div>
+            <p class="recommendation">Incrementar la visibilidad de promociones existentes en la UI de Rappi. Implementar una estrategia de promo rotativa mensual por zona: priorizar zonas donde la competencia tiene mayor tasa de promo. Mejorar el merchandising de beneficios Pro en la homepage de delivery.</p>
+          </div>
+          <details><summary>View supporting data</summary><table><thead><tr><th>Plataforma</th><th>Tasa de Promoción %</th><th>Obs con Promo</th></tr></thead><tbody><tr><td>DiDi Food</td><td>50.0</td><td>48</td></tr><tr><td>Rappi</td><td>25.0</td><td>24</td></tr><tr><td>Uber Eats</td><td>37.5</td><td>36</td></tr></tbody></table></details>
+        </div>
+        <div class="insight-card" style="border-left-color:#EF4444;">
+          <div class="insight-header">
+            <span class="insight-num">#5</span>
+            <span class="insight-cat">Geography</span>
+            <span class="insight-sev" style="background:#EF444420;color:#EF4444;">High Priority</span>
+          </div>
+          <h3>Variabilidad Geográfica de Competitividad</h3>
+          <div class="insight-section">
+            <div class="insight-label">FINDING</div>
+            <p>La competitividad de Rappi varía significativamente por tipo de zona. Rappi es más competitivo en zonas residential_medium (precio total 3.7% mejor vs Uber Eats), pero menos competitivo en zonas premium (+20.5% vs DiDi Food).</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">IMPACT</div>
+            <p>La competitividad no uniforme implica que Rappi necesita estrategias diferenciadas por zona. Perder en zonas periféricas es crítico para el crecimiento, mientras que mantener zonas premium es clave para el GMV total.</p>
+          </div>
+          <div class="insight-section">
+            <div class="insight-label">RECOMMENDATION</div>
+            <p class="recommendation">Implementar pricing y fee diferenciados por segmento geográfico. Crear un mapa de competitividad actualizado semanalmente (este sistema). Priorizar intervención en zonas 'peripheral' y 'residential_medium' donde la pérdida vs DiDi es más pronunciada.</p>
+          </div>
+          <details><summary>View supporting data</summary><table><thead><tr><th>Tipo de Zona</th><th>vs Plataforma</th><th>Diferencia %</th></tr></thead><tbody><tr><td>commercial</td><td>Uber Eats</td><td>6.2</td></tr><tr><td>commercial</td><td>DiDi Food</td><td>12.3</td></tr><tr><td>peripheral</td><td>Uber Eats</td><td>8.6</td></tr><tr><td>peripheral</td><td>DiDi Food</td><td>7.7</td></tr><tr><td>premium</td><td>Uber Eats</td><td>9.8</td></tr><tr><td>premium</td><td>DiDi Food</td><td>20.5</td></tr><tr><td>residential_medium</td><td>Uber Eats</td><td>-3.7</td></tr><tr><td>residential_medium</td><td>DiDi Food</td><td>11.6</td></tr><tr><td>residential_premium</td><td>Uber Eats</td><td>10.0</td></tr><tr><td>residential_premium</td><td>DiDi Food</td><td>8.7</td></tr></tbody></table></details>
+        </div>
+
+  <div class="footer">
+    Auto-generated by the Competitive Intelligence Pipeline &mdash; Rappi Mexico &mdash; 23 Mar 2026, 22:36<br>
+    Data: McDonald's &bull; Rappi + Uber Eats + DiDi Food &bull; 24 delivery addresses
+  </div>
+
+</div>
+</body>
+</html>
