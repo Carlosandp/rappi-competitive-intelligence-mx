@@ -190,41 +190,43 @@ python -m app.main --analyze
 ## 🏗️ Arquitectura del proyecto
 
 ```
-competitive-intelligence-rappi/
-|
-+-- app/
-|   +-- main.py              Orquestador del pipeline (punto de entrada CLI)
-|   +-- dashboard.py         Dashboard Streamlit ejecutivo (7 pestanas)
-|
-+-- scrapers/
-|   +-- base_scraper.py      Base Playwright compartida: delays, retries, screenshots
-|   +-- rappi_scraper.py     Implementacion Rappi
-|   +-- uber_scraper.py      Implementacion Uber Eats
-|   +-- didi_scraper.py      Implementacion DiDi Food
-|   +-- config.py            Todas las constantes y configuraciones
-|   +-- models.py            PriceObservation, StoreInfo, ScrapeSession
-|
-+-- analysis/
-|   +-- generate_demo_data.py  Dataset sintetico realista (respaldo para demo)
-|   +-- normalize.py           Limpieza y normalizacion de datos
-|   +-- insights.py            Top 5 insights competitivos (basados en datos)
-|   +-- charts.py              Funciones Plotly reutilizables
-|   +-- report_generator.py    Generador de reporte HTML ejecutivo
-|
-+-- data/
-|   +-- input/
-|   |   +-- addresses.csv      24 direcciones representativas en Mexico
-|   |   +-- product_map.json   Mapeo canonico de nombres de producto
-|   +-- processed/             Datasets CSV de salida
-|   +-- screenshots/           Evidencia PNG (capturada durante scraping en vivo)
-|
-+-- reports/                   Reportes HTML ejecutivos
-+-- logs/                      Logs de ejecucion por plataforma
-+-- tests/
-|   +-- test_pipeline.py       Suite de pruebas completa
-|
-+-- requirements.txt
-+-- README.md
+.
+├── competitive-intelligence-rappi/
+│   ├── app/
+│   │   ├── main.py                 Orquestador del pipeline (punto de entrada CLI)
+│   │   └── dashboard.py            Dashboard Streamlit ejecutivo (7 pestañas)
+│   │
+│   ├── scrapers/
+│   │   ├── base_scraper.py         Base Playwright compartida: delays, retries, screenshots
+│   │   ├── rappi_scraper.py        Implementación Rappi
+│   │   ├── uber_scraper.py         Implementación Uber Eats
+│   │   ├── didi_scraper.py         Implementación DiDi Food
+│   │   ├── config.py               Todas las constantes y configuraciones
+│   │   └── models.py               PriceObservation, StoreInfo, ScrapeSession
+│   │
+│   ├── analysis/
+│   │   ├── generate_demo_data.py   Dataset sintético realista (respaldo para demo)
+│   │   ├── normalize.py            Limpieza y normalización de datos
+│   │   ├── insights.py             Top 5 insights competitivos (basados en datos)
+│   │   ├── charts.py               Funciones Plotly reutilizables
+│   │   └── report_generator.py     Generador de reporte HTML ejecutivo
+│   │
+│   ├── data/
+│   │   ├── input/
+│   │   │   ├── addresses.csv       24 direcciones representativas en México
+│   │   │   └── product_map.json    Mapeo canónico de nombres de producto
+│   │   ├── processed/              Datasets CSV de salida
+│   │   └── screenshots/            Evidencia PNG capturada durante scraping en vivo
+│   │
+│   ├── reports/                    Reportes HTML ejecutivos
+│   ├── tests/
+│   │   └── test_pipeline.py        Suite de pruebas completa
+│   │
+│   └── requirements.txt            Dependencias del proyecto
+│
+├── README.md
+├── competitive_intelligence_report_latest.html
+└── competitive_prices_demo.csv
 ```
 
 ---
@@ -371,15 +373,3 @@ Este proyecto fue construido como prototipo de evaluación técnica, no como sis
 **Python 3.12** | Playwright | pandas | NumPy | Streamlit | Plotly
 
 ---
-
-## ✅ Por qué esta solución es sólida
-
-Este repositorio no es solo un scraper. Es un prototipo completo de inteligencia competitiva que combina:
-
-- recolección modular de datos en 3 plataformas
-- procesamiento analítico estructurado
-- generación automática de insights orientados al negocio
-- salidas reproducibles con respaldo confiable para demos
-- un dashboard y un reporte ejecutivo listos para presentar a stakeholders
-
-Fue diseñado intencionalmente para equilibrar **robustez técnica**, **disciplina de alcance**, **reproducibilidad** y **valor de negocio**.
